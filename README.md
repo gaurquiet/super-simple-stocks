@@ -70,7 +70,7 @@ the data for the unit test, include other features of spring in the application 
 task. Enable the use of annotations, scan spring components in the code and place holder for 
 the properties are already done.
 
-![Super Simple Stocks - Architecture of Solution](/blob/master/super-simple-stock/src/main/resources/images/super-simple-stocks-architecture.png "Super Simple Stocks - Architecture of Solution")
+![Super Simple Stocks - Architecture of Solution](https://github.com/gaurquiet/super-simple-stocks/blob/master/super-simple-stock/src/main/resources/images/super-simple-stocks-architecture.png "Super Simple Stocks - Architecture of Solution")
 
 Although the approach is SOA, the implementation of the service is built as _**java library**_ as
 a jar artifact named _**super-simple-stock-0.0.1-SNAPSHOT.jar**_. Because there are no explicit 
@@ -124,7 +124,7 @@ all the artifacts, as we need it.
 The first technical decision in our implementation strategy is to provide a unique access to all services in the application. This is accomplished by defining the component **SimpleStockServicesFactory**, which implements the factory pattern and acts as the interface to create all services in the Super Simple Stocks application. The services built by the factory are considered as _**border services**_ and they will be the entry point to the business functionalities for all the external applications that wants to integrate with the stocks library. Each border service is mapped to one unique method in the class SimpleStockServicesFactory to creates the corresponding service instance, using as helper the service _**SpringService**_. This service is responsible to load the Spring context making available all services, architecture components, business model objects and utils defined to support the business functionalities. Additionally, provides a generic mechanism to gets all the beans configured in the Spring context.
 
 
-![Super Simple Stocks - Technical Design Modeling](/Super-Simple-Stocks/blob/master/super-simple-stock/src/main/resources/images/super-simple-stocks-model.png "Super Simple Stocks - Technical Design Modeling")
+![Super Simple Stocks - Technical Design Modeling](https://github.com/gaurquiet/super-simple-stocks/blob/master/super-simple-stock/src/main/resources/images/super-simple-stocks-model.png "Super Simple Stocks - Technical Design Modeling")
 
 For this technical test, the factory component just has one method _**getSimpleStockService**_, that creates a singleton instance of the **SimpleStockService**, which is the main service in the app and contains all method for the calculations. The class SimpleStocksServicesFactoryImpl is the implementation of the factory and implements a thread safe singleton pattern proposed by Bill Pugh. The next snippet of code ilustrates how to use the factory to create a service:
 
